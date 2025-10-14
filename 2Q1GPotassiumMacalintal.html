@@ -100,7 +100,7 @@
         </style>
     </head>
     <body>
-        <audio autoplay loop id="kak" src="/assets/audio/kak.mp3"></audio>
+        <audio autoplay loop id="intro" src="/assets/audio/intro.wav"></audio>
         <nav class="nav-bar">
             <ul>
                 <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">The Willoughbys</a></li>
@@ -115,16 +115,39 @@
           
         <script>
             const order = document.getElementById("order");
+            orderClicked = false;
 
             order.addEventListener('click', start);
             function start() {
-                order.remove();
-                document.getElementById("kak").pause();
+                if (orderClicked == false) {
+                    document.getElementById("intro").pause();
+                    order.animate(
+                        [
+                            {transform: 'scale(1.2)', opacity: 1},
+                            {transform: 'scale(1)', opacity: 0}
+                        ],
+                        {
+                            duration: 500,
+                            fill: 'forwards'
+                        }
+                    );
+
+                    /* While coding I encountered an interesting problem where if i keep hovering over this button after clicking,
+                       I could click again multiple times and the animation would repeat.. So, i added orderClicked to prevent
+                       multiple presses of the button, and it could be removed smoothly after. Just something I wanted to note. */
+                    orderClicked = true;
+                    
+                }
+                
+                order.addEventListener('animationend', removeOrder);
+                function removeOrder() {
+                    order.remove();
+                }
+                
             }
+            
         </script>
         
     </body>
     
 </html>
-
-/* ajs */
