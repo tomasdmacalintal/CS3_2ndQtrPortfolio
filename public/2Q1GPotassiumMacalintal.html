@@ -66,25 +66,27 @@
                 border: none;
                 background: none;
                 color: white;
-                margin: 0 auto;
+                justify-self: center;
+                margin-top: 60vh;
+                position: fixed;
                 font-size: 5vh;
+
 
                 animation-name: smaller;
                 animation-duration: 500ms;
-                transition: 500ms ease;
             }
             .order:hover{
                 display: block;
                 border: none;
                 background: none;
                 color: white;
-                margin: 0 auto;
+                justify-self: center;
+                margin-top: 60vh;
                 cursor: pointer;
 
                 animation-name: bigger;
                 animation-duration: 500ms;
                 animation-fill-mode: forwards;
-                transition: 500ms ease;
             }
             .toggle{
                 width: 10vh;
@@ -108,9 +110,13 @@
                 text-shadow: 0px 0px 10px dimgray;
             }
             .intro_info{
+                display: block;
                 color: dimgray;
                 text-align: center;
-                margin-top: 45vh;
+                justify-self: center;
+                margin-top: 40vh;
+                position: fixed;
+                font-size: 5vh;
 
                 animation-name: fadeIn;
                 animation-duration: 3s;
@@ -165,6 +171,8 @@
                 z-index: -10;
                 opacity: 0;
                 user-select: none;
+                padding-bottom: 10vh;
+                /* The padding is so that the footer can have space. */
             }
             td{
                 border: 1px solid white;
@@ -191,7 +199,7 @@
                 text-align: center;
                 top: 20vh;
                 color: white;
-                position: absolute;
+                position: fixed;
                 z-index: -10;
                 user-select: none;
                 opacity: 0;
@@ -200,7 +208,7 @@
             iframe{
                 display: block;
                 justify-self: center;
-                position: absolute;
+                position: fixed;
                 top: 20vh;
             }
 
