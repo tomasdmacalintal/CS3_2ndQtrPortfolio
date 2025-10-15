@@ -349,6 +349,9 @@
             /* This tells the code it is your first time looking at the menu after loading the webpage. Will be useful for later. */
             firstTime = true;
 
+            /* Gets the year today for copyright. */
+            document.getElementById('year').textContent = new Date().getFullYear();
+
             /* Obtain all audio files. */
             const intro = document.getElementById("intro");
             const noted = document.getElementById("noted");
