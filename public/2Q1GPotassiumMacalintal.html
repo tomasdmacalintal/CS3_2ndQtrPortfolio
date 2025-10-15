@@ -133,13 +133,13 @@
         </style>
     </head>
     <body>
-        <audio loop muted id="intro" src="/assets/audio/intro.wav"></audio>
-        <audio muted id="ordered" src="/assets/audio/ordered.wav"></audio>
-        <audio muted id="ordered" src="/assets/audio/noted.wav"></audio>
-        <audio muted id="ordered" src="/assets/audio/paper_slide.wav"></audio>
-        <audio muted id="ordered" src="/assets/audio/write_1.wav"></audio>
-        <audio muted id="ordered" src="/assets/audio/write_2.wav"></audio>
-        <audio muted id="ordered" src="/assets/audio/write_3.wav"></audio>
+        <audio loop muted id="intro" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/intro.wav"></audio>
+        <audio muted id="noted" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/noted.wav"></audio>
+        <audio muted id="ordered" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/ordered.wav"></audio>
+        <audio muted id="paper_slide" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/paper_slide.wav"></audio>
+        <audio muted id="write_1" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/write_1.wav"></audio>
+        <audio muted id="write_2" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/write_2.wav"></audio>
+        <audio muted id="write_3" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/write_3.wav"></audio>
         <nav class="nav-bar">
             <ul>
                 <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">The Willoughbys</a></li>
@@ -150,7 +150,7 @@
                 <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">CouchCritics</a></li>
             </ul>
         </nav>
-        <img class="toggle" id="toggle" onclick="toggleMute()" alt="Toggle Mute Button" src="/assets/images/muted.png">
+        <img class="toggle" id="toggle" onclick="toggleMute()" alt="Toggle Mute Button" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/muted.png">
         <button class="order" id="order" onclick="start()">Order.</button>
           
         <script>
@@ -201,7 +201,7 @@
 
             function toggleMute() {
                 if (audioMuted == true){
-                    toggle.src = "/assets/images/unmuted.png";
+                    toggle.src = "https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/unmuted.png";
                     intro.muted = false;
                     ordered.muted = false;
                     if (orderClicked == false){
@@ -214,7 +214,7 @@
                        audio immediately from sketchy websites. To fix this, I just let the user toggle sounds for the webpage. */
                 }
                 else{
-                    toggle.src = "/assets/images/muted.png";
+                    toggle.src = "https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/muted.png";
                     intro.muted = true;
                     ordered.muted = true;
                     audioMuted = true;
