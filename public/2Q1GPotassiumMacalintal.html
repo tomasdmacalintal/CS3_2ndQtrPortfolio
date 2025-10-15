@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -27,6 +28,7 @@
                 
                 animation-name: smaller;
                 animation-duration: 500ms;
+                transition: 500ms ease;
 
             }
             a:hover{
@@ -35,24 +37,11 @@
                 color: black;
                 font-size: 2vh;
                 box-shadow: 0px 0px 50px rgb(255, 255, 255);
+
                 animation-name: bigger;
                 animation-duration: 500ms;
                 animation-fill-mode: forwards;
-            }
-
-            @keyframes fadeIn {
-                0% {opacity: 0;}
-                100% {opacity: 100;}
-            }
-
-            @keyframes bigger {
-                0% {transform: scale(1);}
-                100% {transform: scale(1.2);}
-            }
-
-            @keyframes smaller {
-                0% {transform: scale(1.2);}
-                100% {transform: scale(1);}
+                transition: 500ms ease;
             }
 
             li{
@@ -81,6 +70,7 @@
 
                 animation-name: smaller;
                 animation-duration: 500ms;
+                transition: 500ms ease;
                 
             }
             .order:hover{
@@ -96,11 +86,60 @@
                 animation-name: bigger;
                 animation-duration: 500ms;
                 animation-fill-mode: forwards;
+                transition: 500ms ease;
+            }
+            .toggle{
+                width: 10vh;
+                height: 10vh;
+                left: 10;
+                bottom: 0;
+                position: fixed;
+            }
+            .paper{
+                width: 70vw;
+                height: 75vh;
+                background-color: antiquewhite;
+                justify-self: center;
+                justify-content: center;
+                bottom: 0;
+                position: fixed;
+                z-index: -10;
+
+
+                animation-name: slideUp;
+                animation-duration: 500ms;
+                animation-fill-mode: forwards;
+            }
+
+            @keyframes fadeIn {
+                0% {opacity: 0;}
+                100% {opacity: 100;}
+            }
+
+            @keyframes bigger {
+                0% {transform: scale(1);}
+                100% {transform: scale(1.2);}
+            }
+
+            @keyframes smaller {
+                0% {transform: scale(1.2);}
+                100% {transform: scale(1);}
+            }
+
+            @keyframes slideUp {
+                0% {transform: translateY(100%);}
+                100% {transform: translateY(0);}
             }
         </style>
     </head>
     <body>
-        <audio autoplay loop id="intro" src="/assets/audio/intro.wav"></audio>
+        <audio loop muted id="intro" src="/assets/audio/intro.wav"></audio>
+        <audio muted id="ordered" src="/assets/audio/ordered.wav"></audio>
+        <audio muted id="ordered" src="/assets/audio/noted.wav"></audio>
+        <audio muted id="ordered" src="/assets/audio/paper_slide.wav"></audio>
+        <audio muted id="ordered" src="/assets/audio/write_1.wav"></audio>
+        <audio muted id="ordered" src="/assets/audio/write_2.wav"></audio>
+        <audio muted id="ordered" src="/assets/audio/write_3.wav"></audio>
         <nav class="nav-bar">
             <ul>
                 <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">The Willoughbys</a></li>
@@ -111,16 +150,22 @@
                 <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">CouchCritics</a></li>
             </ul>
         </nav>
-        <button class="order" id="order">Order.</button>
+        <img class="toggle" id="toggle" onclick="toggleMute()" alt="Toggle Mute Button" src="/assets/images/muted.png">
+        <button class="order" id="order" onclick="start()">Order.</button>
           
         <script>
             const order = document.getElementById("order");
+            const intro = document.getElementById("intro");
+            const ordered = document.getElementById("ordered");
+            const toggle = document.getElementById("toggle");
+            const body = document.body;
             orderClicked = false;
+            audioMuted = true;
 
-            order.addEventListener('click', start);
             function start() {
                 if (orderClicked == false) {
-                    document.getElementById("intro").pause();
+                    intro.pause();
+                    ordered.play();
                     order.animate(
                         [
                             {transform: 'scale(1.2)', opacity: 1},
@@ -136,14 +181,45 @@
                        I could click again multiple times and the animation would repeat.. So, i added orderClicked to prevent
                        multiple presses of the button, and it could be removed smoothly after. Just something I wanted to note. */
                     orderClicked = true;
-                    
+
                 }
-                
+
                 order.addEventListener('animationend', removeOrder);
                 function removeOrder() {
                     order.remove();
+                    theMenu();
+                    const paper = document.createElement('div');
+                    paper.classList.add('paper');
+                    body.append(paper);
                 }
                 
+            }
+
+            function theMenu() {
+                
+            }
+
+            function toggleMute() {
+                if (audioMuted == true){
+                    toggle.src = "/assets/images/unmuted.png";
+                    intro.muted = false;
+                    ordered.muted = false;
+                    if (orderClicked == false){
+                        intro.play();
+                    }
+                    audioMuted = false;
+
+                    /* Another issue I found was that browsers HATE autoplaying audio. Whenever the webpage is loaded, there is
+                       a chance the audio just fails to play again. This was setup so that users would not get annoyed by hearing 
+                       audio immediately from sketchy websites. To fix this, I just let the user toggle sounds for the webpage. */
+                }
+                else{
+                    toggle.src = "/assets/images/muted.png";
+                    intro.muted = true;
+                    ordered.muted = true;
+                    audioMuted = true;
+                }
+                console.log("Toggled!");
             }
             
         </script>
