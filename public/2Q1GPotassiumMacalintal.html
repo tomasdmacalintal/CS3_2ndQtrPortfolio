@@ -34,7 +34,6 @@
                 animation-name: smaller;
                 animation-duration: 500ms;
                 transition: 500ms ease;
-
             }
             a:hover{
                 background-color: white;
@@ -48,7 +47,6 @@
                 animation-fill-mode: forwards;
                 transition: 500ms ease;
             }
-
             li{
                 display: inline-block;
             }
@@ -74,7 +72,6 @@
                 animation-name: smaller;
                 animation-duration: 500ms;
                 transition: 500ms ease;
-                
             }
             .order:hover{
                 display: block;
@@ -229,6 +226,9 @@
         </style>
     </head>
     <body>
+        <!-- Add in all the audio files. While doing this, I found out about CORB. When I put links to the audio It gets blocked by Google.
+             To fix this, I made the crossorigin anonymous. -->
+
         <audio loop muted id="intro" crossorigin="anonymous">
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/intro.wav" type="audio/wav">
         </audio>
@@ -251,9 +251,7 @@
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/write_3.wav" type="audio/wav">
         </audio>
 
-        <!-- This is how I found out about CORB. When I put links to the audio It gets blocked by Google.
-             To fix this, I made the crossorigin anonymous. -->
-
+        <!-- Add the navigation bar, containing all links to my labmates' webpages. -->
         <nav class="nav-bar">
             <ul>
                 <li><a href="https://phipalibunao.github.io/CS3_2ndQtrPortfolio/public/couchcriticspml.html">The Willoughbys</a></li>
@@ -264,6 +262,8 @@
                 <li><a href="https://phipalibunao.github.io/CS3_2ndQtrPortfolio/public/homepage.html" style="padding: 1.7vh 4vmax;">🎬CouchCritics<br><span style="font-size: smaller; color: dimgray; font-style: italic;">"Chill watches, heated reviews"</span></a></li>
             </ul>
         </nav>
+
+        <!-- Add the table which will be used later in Characters. -->
         <table id="table">
             <tr>
                 <th>Character</th>
@@ -289,27 +289,42 @@
                     turned into something corrupted. Something of a cult leader.</td>
             </tr>
             <tr>
-                <td rowspan="2">Richard and Anne</td>
+                <td>Richard</td>
                 <td rowspan="2"><img class="photo" src="https://thoughtcatalog.com/wp-content/uploads/2025/02/richard_anne.jpg?w=850" alt="Image of Richard and Anne"></td>
                 <td>Rich husband of Anne. A regular at the restaurant. Unfaithful
                     to his wife.</td>
             </tr>
             <tr>
+                <td>Anne</td>
                 <td>Rich wife of Richard. Frequently goes to the restaurant with
                     Richard. Luxurious and hollow inside.</td>
             </tr>
         </table>
+
+        <!-- Add text for Plot. -->
         <h2 class="text" id="plot">Margot and Tyler, dating, go to the Hawthorne restaurant. They and all other guests attending eat dishes made by Chef Slowik and his team. 
                                    Slowik has been honing the art of food, and is ready to present it to his guests. Although, it may be too much for them, as the lengths he
                                    goes for making art turns deadly.</h2>
+
+        <!-- Add text for my Review. -->
         <h2 class="text" id="review">The menu scores high points for me because of its dark but satiric tone. The characters feel real, meaning they have written the characters
                                      well. It also tells a lot about trying to be the best and having the fear of losing. <br><br> I really enjoyed the final scene where Margot
                                      asks for a cheeseburger. Just a plain cheeseburger without any hidden meanings. It shows how sometimes things are better when they are simple,
                                      not too much overthinking. Only the love you put in your work matters.</h2>
+
+        <!-- Add video of the trailer of the movie. -->
         <iframe id="video" width="280" height="157" src="https://www.youtube.com/embed/C_uTkUGcHv4?si=ypTI0ZxA5igSVLUk&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        <!-- This button toggles between muted and unmuted audio. Set muted first so that users can unmute it themselves. -->
         <img class="toggle" id="toggle" onclick="toggleMute()" alt="Toggle Mute Button" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/muted.png">
-        <h1 class="intro_info" id="intro_info">Are you ready to eat?</h1>
+        
+        <!-- Add text to start off the webpage. -->
+        <h1 class="intro_info" id="intro_info">CRITIQUE OF THE MENU<br>Our main course is about to begin. <br>Are you ready to eat?</h1>
+
+        <!-- This button starts the order part. -->
         <button class="order" id="order" onclick="start()">Order.</button>
+
+        <!-- Footer and copyright. -->
         <footer style="display: block; justify-self: center; position: fixed; bottom: 0;">
         <ul class="social-list">
             <li><a href="https://github.com/tomasdmacalintal" target="_blank" rel="noopener noreferrer" style="font-size: 1.5vmin;">GitHub</a></li>
@@ -319,52 +334,77 @@
         <p style="color: white; display: block; justify-self: right; position: fixed; bottom: 0; text-shadow: 0px 0px 20px black;" class="copyright">
             &copy; <span id="year"></span> CouchCritics - Tomas Macalintal 🎬 All rights reserved.
         </p>
+
+        <!-- The table and text are in the page, but not visible yet. They will appear when you select a food option. -->
           
         <script>
+            /* This tells the code it is your first time looking at the menu after loading the webpage. Will be useful for later. */
             firstTime = true;
 
+            /* Obtain all audio files. */
             const intro = document.getElementById("intro");
             const noted = document.getElementById("noted");
             const ordered = document.getElementById("ordered");
             const paper_slide = document.getElementById("paper_slide");
+            /* This is in an object for easier calling later. */
             const writing = {
                 write_1: document.getElementById("write_1"),
                 write_2: document.getElementById("write_2"),
                 write_3: document.getElementById("write_3")
             };
 
+            /* Get the main screen elements. */
             const toggle = document.getElementById("toggle");
             const intro_info = document.getElementById("intro_info");
             const order = document.getElementById("order");
 
+            /* Creating the paper which will be used for giving out the menu. */
             const paper = document.createElement('div');
             paper.classList.add('paper');
 
+            /* Object holding newly created buttons for food choices. */
             const items = {
                 item_1: document.createElement('button'), 
                 item_2: document.createElement('button'), 
                 item_3: document.createElement('button'),
             };
+            /* Then, individually type their text content. */
             items.item_1.innerHTML = "🍔Characters";
             items.item_2.innerHTML = "🍝Plot";
             items.item_3.innerHTML = "🍟Review";
 
+            /* Create the element for the served item, a decoration which lets you know which part of the critique you are at. */
             const servedItem = document.createElement('h1');
             servedItem.classList.add('served_item');
+
+            /* Create the back button to look at other food options. */
             const back = document.createElement('button');
             back.textContent = "Back";
             back.classList.add('back');
+
+            /* Get the table and text elements. */
             const table = document.getElementById('table');
             const plot = document.getElementById('plot');
+            const review = document.getElementById('review');
             
+            /* Add the body as an element. This is to change some style choices in JavaScript. */
             const body = document.body;
+
+            /* Checks if order button has been clicked. */
             orderClicked = false;
+            /* Audio is muted. */
             audioMuted = true;
+            /* We have not selected an item yet. */
             selectedItem = 0;
 
+            /* Starts when order button is clicked. */
             function start() {
+                /* Remove the trailer. */
                 document.getElementById('video').remove();
+                
+                /*Only works if order button has not been clicked. This is to prevent multiple clicks. */
                 if (orderClicked == false) {
+                    /* Pause music, play jingle, animate order button and intro information for smooth removal. */
                     intro.pause();
                     ordered.play();
                     order.animate(
@@ -388,6 +428,7 @@
                         }
                     );
                     
+                    /* Remove order button and intro info, prepare the menu.*/
                     setTimeout(removeOrder, 1000);
                     function removeOrder() {
                         intro_info.remove();
@@ -395,15 +436,19 @@
                         setTimeout(theMenu, 1000);
                     }
 
+                    /* Now, you cannot click for multiple menus to pop up. */
                     orderClicked = true;
                 }
             }
 
             function theMenu() {
+                /* Introduces the menu if it is your first time, or else it asks you if you want something else. This will make it easier to choose later. */
                 if (firstTime == true)
                     paper.innerHTML = "Here is THE MENU. <br>";
                 else
                     paper.innerHTML = "Want some more? <br>";
+
+                /* Add the menu to the screen. */
                 body.append(paper);
                 paper.animate(
                     [
@@ -418,8 +463,10 @@
                 );
                 paper_slide.play();
 
+                /* You wont be able to hover over each option and make a sound unless this is true.*/
                 selectAbility = false;
 
+                /* Add triggers for hovering and clicks, only works if you can select. Selected item and sound change depending on which you pick. */
                 items.item_1.addEventListener('mouseover', function() {if (selectAbility == true) write_1.play();});
                 items.item_2.addEventListener('mouseover', function() {if (selectAbility == true) write_2.play();});
                 items.item_3.addEventListener('mouseover', function() {if (selectAbility == true) write_3.play();});
@@ -427,9 +474,12 @@
                 items.item_2.addEventListener('click', function() {if (selectAbility == true) { selectedItem = 2; selected();}});
                 items.item_3.addEventListener('click', function() {if (selectAbility == true) { selectedItem = 3; selected();}});
                 
+                /* Use the items object to easily define all items' classes to 'item'. */
                 for (let i = 1; i <= 3; i++){
                     itemNumber = "item_" + i;
                     items[itemNumber].classList.add('item');
+
+                    /* If it is your first time, it shows the items slowly. Else, it gives them to you immediately. */
                     paper.append(items[itemNumber]);
                     if (firstTime == true){
                         items[itemNumber].animate(
@@ -460,6 +510,9 @@
                         items[itemNumber].style.opacity = "1";
                     
                 }
+
+                /* If it is your first time, it makes scribbling sounds with a delay before you can select. Else, it does
+                   not make a sound because it was already written down on the menu. Thus, you can select immediately. */
                 if (firstTime == true){
                     let count = 1;
                     const writeInterval = setInterval(() => {
@@ -477,9 +530,12 @@
 
             }
 
+            /* When you select a food option, it gives up your first time. */
             function selected() {
                 firstTime = false;
                 console.log(selectedItem);
+
+                /* Bring down the menu, remove your power to select, and lets you press the back button.*/
                 paper_slide.play();
                 noted.play();
                 selectAbility = false;
@@ -497,10 +553,17 @@
                     }
                 );
 
+                /* Once the waiter is done giving the order, your food is immediately served! How about that? */
                 noted.addEventListener('ended', serveItem);
                 function serveItem(){
+                    /* Remove the menu, animate the back button and item to appear. */
                     paper.remove();
                     console.log("served!");
+
+                    body.append(servedItem);
+                    body.append(back);
+                    /* If you click back, you will be able to order again. */
+                    back.addEventListener('click', orderAgain);
                     back.animate(
                         [
                             {opacity: 0},
@@ -512,6 +575,8 @@
                             fill: 'forwards'
                         }
                     );
+
+                    /* The item and movie part given to you depends on your choice. */
                     if (selectedItem == 1){
                         body.style.overflow = "visible";
                         servedItem.textContent = "🍔";
@@ -557,16 +622,18 @@
                             }
                         );
                     }   
-                    
-                    body.append(servedItem);
-                    body.append(back);
-                    back.addEventListener('click', orderAgain);
                 }
+
+                /* The body style changes depending on your food option. If the content is very big, it switches to scroll mode. */
+
+                /* When you want to go back. */
                 function orderAgain(){
+                    /* Prevents multiple clicks of going back. */
                     if (backClicked == false){
                         body.style.overflow = "hidden";
                         ordered.play();
                         backClicked = true
+                        /* Animate the back button and movie part for smooth removal. */
                         back.animate(
                             [
                                 {opacity: 1},
@@ -616,9 +683,12 @@
                                 }
                             );
                         }
+
+                        /* Removes the back button. We do not need to remove the movie parts. They are only hidden. */
                         setTimeout(removeBack, 1000);
                         function removeBack() {
                             back.remove();
+                            /* Brings back the menu. */
                             setTimeout(theMenu, 1000);
                         }
                     }
@@ -626,7 +696,9 @@
                 }
             }
 
+            /*When you mute or unmute the webpage. */
             function toggleMute() {
+                /* If muted, unmute. If unmuted, mute. Simple. */
                 if (audioMuted == true){
                     toggle.src = "https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/unmuted.png";
                     intro.muted = false;
@@ -637,6 +709,7 @@
                     write_2.muted = false;
                     write_3.muted = false;
 
+                    /* Oh, this is so that the intro music only plays when you are in the starting screen. */
                     if (orderClicked == false){
                         intro.play();
                     }
