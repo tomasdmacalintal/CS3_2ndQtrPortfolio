@@ -9,7 +9,9 @@
                 background-color: black;
                 font-family: Georgia, 'Times New Roman', Times, serif;
             }
-
+            button{
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
             ul{
             list-style-type: none;
             margin: 0;
@@ -64,9 +66,7 @@
                 background: none;
                 color: white;
                 margin: 0 auto;
-                margin-top: 60vh;
                 font-size: 5vh;
-                font-family: Georgia, 'Times New Roman', Times, serif;
 
                 animation-name: smaller;
                 animation-duration: 500ms;
@@ -79,9 +79,7 @@
                 background: none;
                 color: white;
                 margin: 0 auto;
-                margin-top: 60vh;
                 cursor: pointer;
-                font-family: Georgia, 'Times New Roman', Times, serif;
 
                 animation-name: bigger;
                 animation-duration: 500ms;
@@ -100,15 +98,53 @@
                 height: 75vh;
                 background-color: antiquewhite;
                 justify-self: center;
-                justify-content: center;
+                text-align: center;
+                padding-top: 5vh;
                 bottom: 0;
                 position: fixed;
                 z-index: -10;
-
+                font-size: 7vh;
+                color: dimgray;
+                text-shadow: 0px 0px 10px dimgray;
 
                 animation-name: slideUp;
+                animation-duration: 900ms;
+                animation-fill-mode: forwards;
+            }
+            .intro_info{
+                color: dimgray;
+                text-align: center;
+                margin-top: 45vh;
+
+                animation-name: fadeIn;
+                animation-duration: 3s;
+                animation-fill-mode: forwards;
+            }
+            .item{
+                display: block;
+                justify-self: center;
+                margin: 10vh;
+                font-size: 7vmin;
+                border: none;
+                background: none;
+                opacity: 0;
+
+                animation-name: smaller;
+                animation-duration: 500ms;
+                transition: 500ms ease;
+            }
+            .item:hover{
+                display: block;
+                justify-self: center;
+                margin: 10vh;
+                font-size: 7vmin;
+                border: none;
+                background: none;
+
+                animation-name: bigger;
                 animation-duration: 500ms;
                 animation-fill-mode: forwards;
+                transition: 500ms ease;
             }
 
             @keyframes fadeIn {
@@ -130,48 +166,68 @@
                 0% {transform: translateY(100%);}
                 100% {transform: translateY(0);}
             }
+
+            @keyframes slideDown {
+                0% {transform: translateY(0);}
+                100% {transform: translateY(100%);}
+            }
         </style>
     </head>
     <body>
-        <audio loop muted id="intro">
+        <audio loop muted id="intro" crossorigin="anonymous">
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/intro.wav" type="audio/wav">
         </audio>
-        <audio muted id="noted">
+        <audio muted id="noted" crossorigin="anonymous">
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/noted.wav" type="audio/wav">
         </audio>
-        <audio muted id="ordered">
+        <audio muted id="ordered" crossorigin="anonymous">
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/ordered.wav" type="audio/wav">
         </audio>
-        <audio muted id="paper_slide">
+        <audio muted id="paper_slide" crossorigin="anonymous">
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/paper_slide.wav" type="audio/wav">
         </audio>
-        <audio muted id="write_1">
+        <audio muted id="write_1" crossorigin="anonymous">
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/write_1.wav" type="audio/wav">
         </audio>
-        <audio muted id="write_2">
+        <audio muted id="write_2" crossorigin="anonymous">
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/write_2.wav" type="audio/wav">
         </audio>
-        <audio muted id="write_3">
+        <audio muted id="write_3" crossorigin="anonymous">
             <source src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/audio/write_3.wav" type="audio/wav">
         </audio>
+
+        <!-- This is how I found out about CORB. When I put links to the audio It gets blocked by Google.
+             To fix this, I made the crossorigin anonymous. -->
+
         <nav class="nav-bar">
             <ul>
-                <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">The Willoughbys</a></li>
-                <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">Everything, Everywhere All at Once</a></li>
-                <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">Little Shop of Horrors</a></li>
+                <li><a href="https://www.w3schools.com/tags/tag_footer.asp">The Willoughbys</a></li>
+                <li><a href="https://www.w3schools.com/tags/tag_footer.asp">Everything, Everywhere All at Once</a></li>
+                <li><a href="https://www.w3schools.com/tags/tag_footer.asp">Little Shop of Horrors</a></li>
             </ul> 
             <ul>
-                <li><a href="https://www.w3schools.com/tags/tag_footer.asp" target="_blank">CouchCritics</a></li>
+                <li><a href="https://phipalibunao.github.io/CS3_2ndQtrPortfolio/public/homepage.html" style="padding: 1.7vh 4vmax;">🎬CouchCritics<br><span style="font-size: smaller; color: dimgray; font-style: italic;">"Chill watches, heated reviews"</span></a></li>
             </ul>
         </nav>
         <img class="toggle" id="toggle" onclick="toggleMute()" alt="Toggle Mute Button" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/muted.png">
+        <h1 class="intro_info" id="intro_info">Are you ready to eat?</h1>
         <button class="order" id="order" onclick="start()">Order.</button>
           
         <script>
-            const order = document.getElementById("order");
             const intro = document.getElementById("intro");
+            const noted = document.getElementById("noted");
             const ordered = document.getElementById("ordered");
+            const paper_slide = document.getElementById("paper_slide");
+            const writing = {
+                write_1: document.getElementById("write_1"),
+                write_2: document.getElementById("write_2"),
+                write_3: document.getElementById("write_3")
+            };
+
             const toggle = document.getElementById("toggle");
+            const intro_info = document.getElementById("intro_info");
+            const order = document.getElementById("order");
+            
             const body = document.body;
             orderClicked = false;
             audioMuted = true;
@@ -190,47 +246,122 @@
                             fill: 'forwards'
                         }
                     );
+                    intro_info.animate(
+                        [
+                            {opacity: 1},
+                            {opacity: 0}
+                        ],
+                        {
+                            duration: 500,
+                            fill: 'forwards'
+                        }
+                    );
+                    
+                    setTimeout(removeOrder, 1000);
+                    function removeOrder() {
+                        intro_info.remove();
+                        order.remove();
+                        setTimeout(theMenu, 1000);
+                    }
 
-                    /* While coding I encountered an interesting problem where if i keep hovering over this button after clicking,
-                       I could click again multiple times and the animation would repeat.. So, i added orderClicked to prevent
-                       multiple presses of the button, and it could be removed smoothly after. Just something I wanted to note. */
                     orderClicked = true;
-
                 }
 
-                order.addEventListener('animationend', removeOrder);
-                function removeOrder() {
-                    order.remove();
-                    theMenu();
-                    const paper = document.createElement('div');
-                    paper.classList.add('paper');
-                    body.append(paper);
-                }
+                
                 
             }
 
             function theMenu() {
+                const paper = document.createElement('div');
+                paper.classList.add('paper');
+                paper.innerHTML = "Here is THE MENU. <br>";
+                body.append(paper);
+                paper_slide.play();
+
+                const items = {
+                    item_1: document.createElement('button'), 
+                    item_2: document.createElement('button'), 
+                    item_3: document.createElement('button'),
+                };
+                items.item_1.innerHTML = "🍔Characters";
+                items.item_2.innerHTML = "🍝Plot";
+                items.item_3.innerHTML = "🍟Review";
+                items.item_1.addEventListener('mouseover', function() {write_1.play();});
+                items.item_2.addEventListener('mouseover', function() {write_2.play();});
+                items.item_3.addEventListener('mouseover', function() {write_3.play();});
+                items.item_1.addEventListener('click', characters);
+                items.item_2.addEventListener('click', plot);
+                items.item_3.addEventListener('click', review);
                 
+                for (let i = 1; i <= 3; i++){
+                    itemNumber = "item_" + i;
+                    items[itemNumber].classList.add('item');
+                    paper.append(items[itemNumber]);
+                    items[itemNumber].animate(
+                        [
+                            {transform: 'translateY(100%)'},
+                            {transform: 'translateY(0)'}
+                        ],
+                        {
+                            duration: 500,
+                            delay: 1000*i + 500,
+                            easing: 'ease-in-out'
+                        }
+                    );
+                    items[itemNumber].animate(
+                        [
+                            {opacity: 0},
+                            {opacity: 1}
+                        ],
+                        {
+                            duration: 500,
+                            delay: 1000*i + 500,
+                            easing: 'ease-in-out',
+                            fill: 'forwards'
+                        }
+                    );
+                }
+                let count = 1;
+                const writeInterval = setInterval(() => {
+                    writeNumber = "write_" + count;
+                    writing[writeNumber].play();
+                    count++;
+                    if (count > 3){
+                        clearInterval(writeInterval);
+                    }
+                }, 1000*count + 200);
+
             }
 
             function toggleMute() {
                 if (audioMuted == true){
                     toggle.src = "https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/unmuted.png";
                     intro.muted = false;
+                    noted.muted = false;
                     ordered.muted = false;
+                    paper_slide.muted = false;
+                    write_1.muted = false;
+                    write_2.muted = false;
+                    write_3.muted = false;
+
                     if (orderClicked == false){
                         intro.play();
                     }
                     audioMuted = false;
 
-                    /* Another issue I found was that browsers HATE autoplaying audio. Whenever the webpage is loaded, there is
+                    /* An issue I found was that browsers HATE autoplaying audio. Whenever the webpage is loaded, there is
                        a chance the audio just fails to play again. This was setup so that users would not get annoyed by hearing 
                        audio immediately from sketchy websites. To fix this, I just let the user toggle sounds for the webpage. */
                 }
                 else{
                     toggle.src = "https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/muted.png";
                     intro.muted = true;
+                    noted.muted = true;
                     ordered.muted = true;
+                    paper_slide.muted = true;
+                    write_1.muted = true;
+                    write_2.muted = true;
+                    write_3.muted = true;
                     audioMuted = true;
                 }
                 console.log("Toggled!");
