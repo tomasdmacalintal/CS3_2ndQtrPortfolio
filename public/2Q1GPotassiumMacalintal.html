@@ -7,6 +7,7 @@
             
             body{
                 background-color: black;
+                overflow: hidden;
                 font-family: Georgia, 'Times New Roman', Times, serif;
             }
             button{
@@ -106,10 +107,6 @@
                 font-size: 7vh;
                 color: dimgray;
                 text-shadow: 0px 0px 10px dimgray;
-
-                animation-name: slideUp;
-                animation-duration: 900ms;
-                animation-fill-mode: forwards;
             }
             .intro_info{
                 color: dimgray;
@@ -146,6 +143,67 @@
                 animation-fill-mode: forwards;
                 transition: 500ms ease;
             }
+            .served_item{
+                display: block;
+                font-size: 50vh;
+                justify-self: center;
+                position: fixed;
+                bottom: -50%;
+                z-index: -20;
+
+                animation-name: slideDown;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+            }
+            table{
+                color: white;
+                justify-self: center;
+                top: 20vh;
+                width: 80%;
+                border: 2px solid white;
+                background-color: rgba(255, 255, 255, 0.1);
+                position: absolute;
+                z-index: -10;
+                opacity: 0;
+                user-select: none;
+            }
+            td{
+                border: 1px solid white;
+                font-size: 2vmin;
+                text-align: center;
+            }
+            th{
+                border: 1px solid white
+            }
+            .photo{
+                width: 25vmin;
+                height: 25vmin;
+                user-select: none;
+            }
+            .back{
+                font-size: 3vmin;
+                position: fixed;
+                top: 50%;
+                left: 2vw;
+            }
+            .text{
+                margin: 10vw;
+                font-size: 4vmin;
+                text-align: center;
+                top: 20vh;
+                color: white;
+                position: absolute;
+                z-index: -10;
+                user-select: none;
+                opacity: 0;
+                text-shadow: 0px 0px 10px black;
+            }
+            iframe{
+                display: block;
+                justify-self: center;
+                position: absolute;
+                top: 20vh;
+            }
 
             @keyframes fadeIn {
                 0% {opacity: 0;}
@@ -162,14 +220,9 @@
                 100% {transform: scale(1);}
             }
 
-            @keyframes slideUp {
-                0% {transform: translateY(100%);}
-                100% {transform: translateY(0);}
-            }
-
             @keyframes slideDown {
-                0% {transform: translateY(0);}
-                100% {transform: translateY(100%);}
+                0% {transform: translateY(-300%);}
+                100% {transform: translateY(0);}
             }
         </style>
     </head>
@@ -209,11 +262,58 @@
                 <li><a href="https://phipalibunao.github.io/CS3_2ndQtrPortfolio/public/homepage.html" style="padding: 1.7vh 4vmax;">🎬CouchCritics<br><span style="font-size: smaller; color: dimgray; font-style: italic;">"Chill watches, heated reviews"</span></a></li>
             </ul>
         </nav>
+        <table id="table">
+            <tr>
+                <th>Character</th>
+                <th>Image</th>
+                <th>Personality</th>
+            </tr>
+            <tr>
+                <td>Margot</td>
+                <td><img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3yZX6z0Bwt6jVdc-6sRp6s4H6Blqg2rHmxQ&s" alt="Image of Margot"></td>
+                <td>The protagonist. Smart and secretive with emotions. 
+                    Unlike other guests, she is down-to-earth.</td>
+                
+            </tr>
+            <tr>
+                <td>Tyler</td>
+                <td><img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRSfqCFFbTB_g3C0h24tDeABfVl1fMWxfOA&s" alt="Image of Tyler"></td>
+                <td>Fan of Chef Slowik. Naive and wants to seem smart.</td>
+            </tr>
+            <tr>
+                <td>Chef Slowik</td>
+                <td><img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_ifCP7io97GTipXuvpkdwUU5tjVBWJGQwQA&s" alt="Image of Chef Slowik"></td>
+                <td>Perfectionist with his food. His passion of cooking
+                    turned into something corrupted. Something of a cult leader.</td>
+            </tr>
+            <tr>
+                <td>Richard</td>
+                <td><img class="photo" src="https://thoughtcatalog.com/wp-content/uploads/2025/02/richard_anne.jpg?w=850" alt="Image of Richard"></td>
+                <td>Rich husband of Anne. A regular at the restaurant. Unfaithful
+                    to his wife.</td>
+            </tr>
+            <tr>
+                <td>Anne</td>
+                <td><img class="photo" src="https://m.media-amazon.com/images/M/MV5BOWI4YjA2YjAtYzc0OC00MDI4LWI0ZjMtZDMwMzI5YzRjNzFmXkEyXkFqcGc@._V1_.jpg" alt="Image of Anne"></td>
+                <td>Rich wife of Richard. Frequently goes to the restaurant with
+                    Richard. Luxurious and hollow inside.</td>
+            </tr>
+        </table>
+        <h2 class="text" id="plot">Margot and Tyler, dating, go to the Hawthorne restaurant. They and all other guests attending eat dishes made by Chef Slowik and his team. 
+                                   Slowik has been honing the art of food, and is ready to present it to his guests. Although, it may be too much for them, as the lengths he
+                                   goes for making art turns deadly.</h2>
+        <h2 class="text" id="review">The menu scores high points for me because of its dark but satiric tone. The characters feel real, meaning they have written the characters
+                                     well. It also tells a lot about trying to be the best and having the fear of losing. <br><br> I really enjoyed the final scene where Margot
+                                     asks for a cheeseburger. Just a plain cheeseburger without any hidden meanings. It shows how sometimes things are better when they are simple,
+                                     not too much overthinking. Only the love you put in your work matters.</h2>
+        <iframe id="video" width="280" height="157" src="https://www.youtube.com/embed/C_uTkUGcHv4?si=ypTI0ZxA5igSVLUk&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <img class="toggle" id="toggle" onclick="toggleMute()" alt="Toggle Mute Button" src="https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/muted.png">
         <h1 class="intro_info" id="intro_info">Are you ready to eat?</h1>
         <button class="order" id="order" onclick="start()">Order.</button>
           
         <script>
+            firstTime = true;
+
             const intro = document.getElementById("intro");
             const noted = document.getElementById("noted");
             const ordered = document.getElementById("ordered");
@@ -227,12 +327,34 @@
             const toggle = document.getElementById("toggle");
             const intro_info = document.getElementById("intro_info");
             const order = document.getElementById("order");
+
+            const paper = document.createElement('div');
+            paper.classList.add('paper');
+
+            const items = {
+                item_1: document.createElement('button'), 
+                item_2: document.createElement('button'), 
+                item_3: document.createElement('button'),
+            };
+            items.item_1.innerHTML = "🍔Characters";
+            items.item_2.innerHTML = "🍝Plot";
+            items.item_3.innerHTML = "🍟Review";
+
+            const servedItem = document.createElement('h1');
+            servedItem.classList.add('served_item');
+            const back = document.createElement('button');
+            back.textContent = "Back";
+            back.classList.add('back');
+            const table = document.getElementById('table');
+            const plot = document.getElementById('plot');
             
             const body = document.body;
             orderClicked = false;
             audioMuted = true;
+            selectedItem = 0;
 
             function start() {
+                document.getElementById('video').remove();
                 if (orderClicked == false) {
                     intro.pause();
                     ordered.play();
@@ -266,71 +388,233 @@
 
                     orderClicked = true;
                 }
-
-                
-                
             }
 
             function theMenu() {
-                const paper = document.createElement('div');
-                paper.classList.add('paper');
-                paper.innerHTML = "Here is THE MENU. <br>";
+                if (firstTime == true)
+                    paper.innerHTML = "Here is THE MENU. <br>";
+                else
+                    paper.innerHTML = "Want some more? <br>";
                 body.append(paper);
+                paper.animate(
+                    [
+                        {transform: 'translateY(100%)'},
+                        {transform: 'translateY(0)'}
+                    ],
+                    {
+                        duration: 900,
+                        easing: 'ease-in-out',
+                        fill: 'forwards'
+                    }
+                );
                 paper_slide.play();
 
-                const items = {
-                    item_1: document.createElement('button'), 
-                    item_2: document.createElement('button'), 
-                    item_3: document.createElement('button'),
-                };
-                items.item_1.innerHTML = "🍔Characters";
-                items.item_2.innerHTML = "🍝Plot";
-                items.item_3.innerHTML = "🍟Review";
-                items.item_1.addEventListener('mouseover', function() {write_1.play();});
-                items.item_2.addEventListener('mouseover', function() {write_2.play();});
-                items.item_3.addEventListener('mouseover', function() {write_3.play();});
-                items.item_1.addEventListener('click', characters);
-                items.item_2.addEventListener('click', plot);
-                items.item_3.addEventListener('click', review);
+                selectAbility = false;
+
+                items.item_1.addEventListener('mouseover', function() {if (selectAbility == true) write_1.play();});
+                items.item_2.addEventListener('mouseover', function() {if (selectAbility == true) write_2.play();});
+                items.item_3.addEventListener('mouseover', function() {if (selectAbility == true) write_3.play();});
+                items.item_1.addEventListener('click', function() {if (selectAbility == true) { selectedItem = 1; selected();}});
+                items.item_2.addEventListener('click', function() {if (selectAbility == true) { selectedItem = 2; selected();}});
+                items.item_3.addEventListener('click', function() {if (selectAbility == true) { selectedItem = 3; selected();}});
                 
                 for (let i = 1; i <= 3; i++){
                     itemNumber = "item_" + i;
                     items[itemNumber].classList.add('item');
                     paper.append(items[itemNumber]);
-                    items[itemNumber].animate(
-                        [
-                            {transform: 'translateY(100%)'},
-                            {transform: 'translateY(0)'}
-                        ],
-                        {
-                            duration: 500,
-                            delay: 1000*i + 500,
-                            easing: 'ease-in-out'
+                    if (firstTime == true){
+                        items[itemNumber].animate(
+                            [
+                                {transform: 'translateY(100%)'},
+                                {transform: 'translateY(0)'}
+                            ],
+                            {
+                                duration: 500,
+                                delay: 1000*i + 500,
+                                easing: 'ease-in-out'
+                            }
+                        );
+                        items[itemNumber].animate(
+                            [
+                                {opacity: 0},
+                                {opacity: 1}
+                            ],
+                            {
+                                duration: 500,
+                                delay: 1000*i + 500,
+                                easing: 'ease-in-out',
+                                fill: 'forwards'
+                            }
+                        );
+                    }
+                    else
+                        items[itemNumber].style.opacity = "1";
+                    
+                }
+                if (firstTime == true){
+                    let count = 1;
+                    const writeInterval = setInterval(() => {
+                        writeNumber = "write_" + count;
+                        writing[writeNumber].play();
+                        count++;
+                        if (count > 3){
+                            selectAbility = true;
+                            clearInterval(writeInterval);
                         }
-                    );
-                    items[itemNumber].animate(
+                    }, 1000*count + 200);
+                }
+                else
+                    selectAbility = true;
+
+            }
+
+            function selected() {
+                firstTime = false;
+                console.log(selectedItem);
+                paper_slide.play();
+                noted.play();
+                selectAbility = false;
+                backClicked = false;
+
+                paper.animate(
+                    [
+                        {transform: 'translateY(0)'},
+                        {transform: 'translateY(100%)'}
+                    ],
+                    {
+                        duration: 900,
+                        easing: 'ease-in-out',
+                        fill: 'forwards'
+                    }
+                );
+
+                noted.addEventListener('ended', serveItem);
+                function serveItem(){
+                    paper.remove();
+                    console.log("served!");
+                    back.animate(
                         [
                             {opacity: 0},
                             {opacity: 1}
                         ],
                         {
                             duration: 500,
-                            delay: 1000*i + 500,
                             easing: 'ease-in-out',
                             fill: 'forwards'
                         }
                     );
-                }
-                let count = 1;
-                const writeInterval = setInterval(() => {
-                    writeNumber = "write_" + count;
-                    writing[writeNumber].play();
-                    count++;
-                    if (count > 3){
-                        clearInterval(writeInterval);
+                    if (selectedItem == 1){
+                        body.style.overflow = "visible";
+                        servedItem.textContent = "🍔";
+                        table.animate(
+                            [
+                                {opacity: 0},
+                                {opacity: 1}
+                            ],
+                            {
+                                duration: 500,
+                                easing: 'ease-in-out',
+                                fill: 'forwards'
+                            }
+                        );
                     }
-                }, 1000*count + 200);
-
+                    else if (selectedItem == 2){
+                        body.style.overflow = "hidden";
+                        servedItem.textContent = "🍝";
+                        plot.animate(
+                            [
+                                {opacity: 0},
+                                {opacity: 1}
+                            ],
+                            {
+                                duration: 500,
+                                easing: 'ease-in-out',
+                                fill: 'forwards'
+                            }
+                        );
+                    }
+                    else{
+                        body.style.overflow = "hidden";
+                        servedItem.textContent = "🍟";
+                        review.animate(
+                            [
+                                {opacity: 0},
+                                {opacity: 1}
+                            ],
+                            {
+                                duration: 500,
+                                easing: 'ease-in-out',
+                                fill: 'forwards'
+                            }
+                        );
+                    }   
+                    
+                    body.append(servedItem);
+                    body.append(back);
+                    back.addEventListener('click', orderAgain);
+                }
+                function orderAgain(){
+                    if (backClicked == false){
+                        body.style.overflow = "hidden";
+                        ordered.play();
+                        backClicked = true
+                        back.animate(
+                            [
+                                {opacity: 1},
+                                {opacity: 0}
+                            ],
+                            {
+                                duration: 500,
+                                fill: 'forwards'
+                            }
+                        );
+                        if (selectedItem == 1){
+                            table.animate(
+                                [
+                                    {opacity: 1},
+                                    {opacity: 0}
+                                ],
+                                {
+                                    duration: 500,
+                                    easing: 'ease-in-out',
+                                    fill: 'forwards'
+                                }
+                            );
+                        }
+                        else if (selectedItem == 2){
+                            plot.animate(
+                                [
+                                    {opacity: 1},
+                                    {opacity: 0}
+                                ],
+                                {
+                                    duration: 500,
+                                    easing: 'ease-in-out',
+                                    fill: 'forwards'
+                                }
+                            );
+                        }
+                        else{
+                            review.animate(
+                                [
+                                    {opacity: 1},
+                                    {opacity: 0}
+                                ],
+                                {
+                                    duration: 500,
+                                    easing: 'ease-in-out',
+                                    fill: 'forwards'
+                                }
+                            );
+                        }
+                        setTimeout(removeBack, 1000);
+                        function removeBack() {
+                            back.remove();
+                            setTimeout(theMenu, 1000);
+                        }
+                    }
+                    
+                }
             }
 
             function toggleMute() {
