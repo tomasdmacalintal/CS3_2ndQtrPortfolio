@@ -211,7 +211,7 @@ p {
   border-left: 8px solid #d85c2c; 
   background-image: url('https://www.transparenttextures.com/patterns/yarn.png'); 
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 iframe { 
@@ -226,13 +226,12 @@ iframe {
   box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
 }
 .gif-addon { 
-  justify-content: center; 
   align-items: center; 
-  width: 100vw;
+  width: 10vw;
 }
 .gif-addon img { 
   border-radius: 20px; 
-  max-width: 100%; 
   height: auto; 
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+  max-width: 100%;
 }
