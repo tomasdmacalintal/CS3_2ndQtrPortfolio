@@ -1,21 +1,16 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background-image: url('https://cdn.vox-cdn.com/thumbor/EPIVIv6LWRBTTnXJRnBbk_PFsmQ=/0x0:2580x1080/1200x0/filters:focal(0x0:2580x1080):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/19917882/The_Willoughbys_00_11_20_09.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-blend-mode: multiply;
-  background-color: rgba(60, 30, 10, 0.85);
   margin: 0;
   padding: 0;
-  color: #5a2414;
   overflow-x: hidden;
 }
 
 nav.navbar {
   width: 100%;
-  background: rgba(255, 230, 214, 0.95);
-  box-shadow: 0 4px 15px rgba(90,30,10,0.3);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -30,33 +25,22 @@ nav.navbar ul {
 }
 nav.navbar ul li a {
   text-decoration: none;
-  color: #c23a24;
   font-weight: 600;
   font-size: 1.1em;
   padding: 6px 12px;
   border-radius: 12px;
   transition: background 0.3s, color 0.3s;
 }
-nav.navbar ul li a:hover {
-  background: #c23a24;
-  color: #fff;
-}
-
 header {
   text-align: center;
   padding: 110px 20px 60px;
   position: relative;
-  background: linear-gradient(180deg, rgba(255,230,214,0.95), rgba(255,213,180,0.9));
-  border-bottom: 8px ridge #c24a28;
-  box-shadow: 0 8px 40px rgba(90, 30, 10, 0.4);
 }
 h1 {
   font-family: 'Cormorant Garamond', serif;
   opacity: 0;
   margin: 0 auto;
   font-size: 5em;
-  color: #c23a24;
-  text-shadow: 3px 3px 8px rgba(255, 220, 200, 0.9);
   letter-spacing: 3px;
   margin-bottom: 0.2em;
   position: relative;
@@ -65,16 +49,11 @@ h1 {
   animation: fadeIn 3s forwards, glowPulse 1.5s ease-in-out infinite alternate;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes glowPulse {
-  0% { text-shadow: 0 0 10px #ffbdbd, 0 0 20px  #ff8e72; }
-  100% { text-shadow: 0 0 25px #ffcfb2, 0 0 60px #ff8e72; }
-}
+
 .tagline {
-  color: #84391f;
   font-size: 1.6em;
   font-style: italic;
   margin-top: 10px;
-  text-shadow: 1px 1px 3px rgba(255, 240, 230, 0.9);
   opacity: 0;
   animation: taglineFade 2s ease-out 3s forwards;
 }
@@ -85,17 +64,13 @@ h1 {
   background: rgba(255, 250, 240, 0.96);
   margin: 70px auto;
   border-radius: 40px;
-  box-shadow: 0 10px 45px rgba(90, 30, 10, 0.45);
   padding: 45px;
-  border: 6px double #f6a36c;
   background-image: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
 }
 h2 {
   font-family: 'Cormorant Garamond', serif;
-  color: #b33a1d;
   font-size: 2.4em;
   margin-top: 40px;
-  border-bottom: 3px dashed #f3a86f;
   display: inline-block;
   padding-bottom: 5px;
 }
@@ -103,35 +78,12 @@ p {
   font-size: 1.25em;
   line-height: 1.8em;
   margin-top: 10px;
-  color: #4a2a13;
 }
-
-.project-links ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1.2em;
-}
-.project-links ul li {
-  margin: 12px 0;
-}
-.project-links a {
-  text-decoration: none;
-  color: #c23a24;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-.project-links a:hover {
-  color: #ff8e72;
-}
-
 footer {
   text-align: center;
-  color: #ffd8cc;
   margin-top: 60px;
   padding: 30px 0 80px;
   font-size: 1.1em;
-  text-shadow: 2px 2px 6px rgba(60,30,10,0.6);
-  background: linear-gradient(to top, rgba(100,30,10,0.8), transparent);
 }
 
 table { 
@@ -141,20 +93,13 @@ table {
   font-size: 1.15em; 
   border-radius: 20px; 
   overflow: hidden; 
-  background-image: url('https://www.transparenttextures.com/patterns/symphony.png'); 
 }
 th { 
-  background: #ffd1b5; 
   font-family: 'Cormorant Garamond', serif; 
-  color: #5a1a0c; 
   font-size: 1.2em; 
-  border: 2px solid #f1ad83; 
   padding: 14px; 
 }
 td { 
-  background: #fffaf4; 
-  color: #4a2812; 
-  border: 2px solid #f5c9a3; 
   padding: 14px; 
 }
 .char-img { 
@@ -169,36 +114,14 @@ td {
   border-radius: 25px; 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); 
 }
-
-h2 { 
-  font-family: 'Cormorant Garamond', serif; 
-  color: #b33a1d; 
-  font-size: 2.4em; 
-  margin-top: 40px; 
-  border-bottom: 3px dashed #f3a86f; 
-  display: inline-block; 
-  padding-bottom: 5px; 
-}
-
-p { 
-  font-size: 1.25em; 
-  line-height: 1.8em; 
-  margin-top: 10px; 
-  color: #4a2a13; 
-}
 .quote { 
+  background: #ffe6da; 
   font-size: 1.5em; 
   font-style: italic; 
-  background: #ffe6da; 
-  border-left: 10px solid #d25733; 
   padding: 25px; 
   border-radius: 20px; 
   margin: 35px 0; 
-  color: #7a2f1b; 
-  box-shadow: 4px 4px 14px rgba(80, 30, 10, 0.2); 
-  background-image: url('https://www.transparenttextures.com/patterns/woven-light.png'); 
 }
-
 .movie-review { 
   display: flex;
   background: #ffe8d7; 
@@ -207,13 +130,9 @@ p {
   margin: 40px 0; 
   font-size: 1.3em; 
   color: #6a2f1f; 
-  box-shadow: 3px 4px 20px rgba(80, 30, 10, 0.25); 
-  border-left: 8px solid #d85c2c; 
-  background-image: url('https://www.transparenttextures.com/patterns/yarn.png'); 
   align-items: center;
   justify-content: space-between;
 }
-
 iframe { 
   width: 100%; 
   height: 400px; 
