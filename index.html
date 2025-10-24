@@ -8,20 +8,58 @@
   <style>
     body{
       font-family: 'Ubuntu', sans-serif;
-      background-color: powderblue;
+      background-color: rgb(9, 24, 16);
+      animation-name: pulse;
+      animation-duration: 2s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
     }
     h1{
       font-size: 2em;
       font-weight: bold;
+      color: white;
+      text-shadow: 0 0 10px rgb(92, 255, 127);
     }
+    nav ul{
+      list-style: none;
+    }
+    a{
+      display: block;
+      text-align: center;
+      border: 2px solid rgb(92, 255, 127);
+      background-color: black;
+      width: 30%;
+      height: max-content;
+      line-height: 120px;
+      transition: 0.3s ease-in-out;
+      color: rgb(92, 255, 127);
+      text-shadow: 0 0 2px rgb(92, 255, 127);
+      text-decoration: none;
+      border-radius: 10px;
+    }
+    a:hover{
+      color: white;
+      text-shadow: 0 0 50px white;
+      transition: 0.3s ease-in-out;
+      border-color: white;
+      background-color: rgb(5, 5, 5);
+    }
+
+    @keyframes pulse {
+      from {background-color: rgb(9, 24, 16);}
+      to {background-color: rgb(19, 34, 26);}
+    }
+
   </style>
 </head>
 <body>
   <section class="w3-container">
-   <h1 style="color: darkslategray;">Links to Tomas' 2ND QUARTER work</h1>
+   <h1>Links to Tomas' 2ND QUARTER work</h1>
    <nav>
     <ul>
       <li><a href="./public/2Q1GPotassiumMacalintal.html"> Q2 First Graded Exercise </a></li>
+      <li><a href="./public/2Q2GPotassiumMacalintal.html"> Q2 Second Graded Exercise </a></li>
     </ul>
    </nav>
   </section>
