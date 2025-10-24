@@ -225,11 +225,11 @@ iframe {
   overflow: hidden; 
   box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
 }
-.gif-addon { 
+.addon { 
   align-items: center; 
   width: 10vw;
 }
-.gif-addon img { 
+.addon img { 
   border-radius: 20px; 
   height: auto; 
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
