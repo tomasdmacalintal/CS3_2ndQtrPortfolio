@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body{
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background-color: black;
+                transition: 0.2s ease-in-out;
+            }
+            .card{
+                padding: 20px;
+                border: 2px solid gray;
+                border-radius: 8px;
+                background-color: lightgray;
+                width: 600px;
+                height: 300px;
+                margin: auto;
+                margin-top: 20vh;
+                transition: 0.1s ease-in-out;
+                animation: smaller 0.5s ease-in-out forwards;
+            }
+            .card h1{
+                color: gray;
+            }
+            .card p{
+                font-size: 18px;
+            }
+            .card:hover p,.card:hover h1{
+                color: rgb(133, 50, 17);
+            }
+            body:has(.card:hover){
+                background-color: antiquewhite;
+            }
+            .card:hover{
+                border: 2px dashed yellow;
+                transform-origin: center;
+                background-color: rgb(255, 188, 101);
+                animation: mouseprepare 0.5s ease-in-out,mousehover 1s ease-in-out 0.5s infinite alternate;
+            }
+            .photo{
+                background-image: url('https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/face.jpg');
+                background-size: cover;
+                width: 200px;
+                height: 100%;
+                background-position: -10px;
+                margin-right: 16px;
+                border: 2px solid gray;
+                border-radius: 8px;
+                float: left;
+                transition: 0.1s ease-in-out;
+                background-repeat: no-repeat;
+            }
+            .card:hover .photo{
+                border: 2px dashed yellow;
+                background-image: url('https://raw.githubusercontent.com/tomasdmacalintal/CS3_2ndQtrPortfolio/main/assets/images/smiley_face.jpg');
+            }
+            @keyframes mousehover{
+                0% {transform: rotate(-5deg) scale(1.1);}
+                100% {transform: rotate(5deg) scale(1.1);}
+            }
+            @keyframes mouseprepare{
+                0% {transform: rotate(0) scale(1);}
+                100% {transform: rotate(-5deg) scale(1.1);}
+            }
+            @keyframes smaller{
+                0% {transform: scale(1.1);}
+                100% {transform: scale(1);}
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <div class="photo"></div>
+            <h1>MACALINTAL, Datu Pio Tomas D.</h1>
+            <p>Fav Hobby: Music!</p>
+            <p>Fun Fact: I have 2 cats!</p>
+        </div>
+    </body>
+</html>
